@@ -8,7 +8,7 @@
 
     <TextView
         android:text="New Camera"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -20,17 +20,62 @@
         android:text="Camera Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/NewCameraText"
         android:id="@+id/CameraNameText"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:layout_below="@id/NewCameraText"
+        android:layout_alignBaseline="@+id/CameraNameEdit"
+        android:layout_alignParentLeft="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name"
-        android:ems="8"
+        android:ems="10"
         android:id="@+id/CameraNameEdit"
         android:layout_below="@+id/NewCameraText"
-        android:layout_toRightOf="@+id/NewCameraText" />
+        android:layout_toRightOf="@+id/CameraNameText" />
+
+    <TextView
+        android:text="Camera Brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/CameraBrandText"
+        android:textSize="24sp"
+        android:layout_alignBaseline="@+id/CameraBrandEdit" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Brand"
+        android:ems="10"
+        android:id="@+id/CameraBrandEdit"
+        android:layout_below="@+id/CameraNameEdit"
+        android:layout_toRightOf="@+id/CameraBrandText" />
+
+    <TextView
+        android:text="Serial Number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SerialNumberText"
+        android:textSize="24sp"
+        android:layout_alignBaseline="@+id/SerialNumberEdit" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number"
+        android:ems="10"
+        android:id="@+id/SerialNumberEdit"
+        android:layout_below="@+id/CameraBrandEdit"
+        android:layout_toRightOf="@+id/SerialNumberText" />
+
+    <Button
+        android:text="Add Camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SerialNumberEdit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/AddCameraButton" />
+
 </RelativeLayout>
