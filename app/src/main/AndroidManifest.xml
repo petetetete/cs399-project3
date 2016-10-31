@@ -10,6 +10,15 @@
         android:label="AppName"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
+        <activity android:name=".ImageActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+
         <activity
             android:name=".MainActivity"
             android:label="Home">
@@ -19,23 +28,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CameraActivity"
-            android:label="Camera 1">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CamerasActivity" />
-        </activity>
-        <activity android:name=".ImageActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
             android:name=".CamerasActivity"
             android:label="Cameras">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".CameraActivity"
+            android:label="Camera">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CamerasActivity" />
+        </activity>
+        <activity
+            android:name=".NewCameraActivity"
+            android:label="New Camera">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CamerasActivity" />
         </activity>
     </application>
 
