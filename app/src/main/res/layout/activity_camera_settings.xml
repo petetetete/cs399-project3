@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="Camera Settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/CameraSettingsText"
+                android:textSize="30sp"
+                android:padding="@dimen/fab_margin"/>
+
+            <TextView
+                android:text="Allow Notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/NotificationsText"
+                android:layout_alignBaseline="@+id/Notifications"
+                android:textSize="24sp"
+                android:padding="@dimen/fab_margin"/>
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Notifications"
+                android:layout_below="@id/CameraSettingsText"
+                android:layout_toRightOf="@+id/NotificationsText"
+                android:padding="@dimen/fab_margin"/>
+
+            <TextView
+                android:text="Film Date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/NotificationsText"
+                android:textSize="24sp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/FilmDateText"
+                android:textAlignment="center"
+                android:paddingTop="40dp"/>
+
+            <CalendarView
+                android:layout_height="wrap_content"
+                android:id="@+id/FilmDateCalendar"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/FilmDateText"/>
+
+            <TextView
+                android:text="Start Time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/FilmDateCalendar"
+                android:textSize="24sp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/StartTimeText"
+                android:textAlignment="center"
+                android:paddingTop="50dp"/>
+
+            <TimePicker
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/StartTimeText"
+                android:id="@+id/StartTimePicker" />
+
+            <TextView
+                android:text="End Time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/StartTimePicker"
+                android:textSize="24sp"
+                android:paddingTop="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/EndTimeText"
+                android:textAlignment="center"/>
+
+            <TimePicker
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/EndTimeText"
+                android:id="@+id/EndTimePicker"
+                android:paddingBottom="30dp"/>
+
+            <Button
+                android:text="Save Settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EndTimePicker"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/SaveSettingsButton" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

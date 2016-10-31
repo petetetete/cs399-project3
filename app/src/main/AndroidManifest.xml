@@ -48,6 +48,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CamerasActivity" />
         </activity>
+        <activity
+            android:name=".CameraSettingsActivity"
+            android:label="Camera Settings">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CamerasActivity" />
+        </activity>
     </application>
 
 </manifest>

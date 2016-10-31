@@ -73,6 +73,8 @@ public class CameraAdapter extends BaseAdapter implements ListAdapter {
         settingsBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(context, CameraSettingsActivity.class);
+                context.startActivity(intent);
                 notifyDataSetChanged();
             }
         });
