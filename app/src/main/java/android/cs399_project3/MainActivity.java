@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Set video button listener
-        /*findViewById(R.id.toImageView).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.addCamera).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ImageActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NewCameraActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 }

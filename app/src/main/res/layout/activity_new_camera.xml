@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_new_camera"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="android.cs399_project3.NewCameraActivity">
+
+    <TextView
+        android:text="New Camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/NewCameraText"
+        android:textSize="30sp" />
+
+    <TextView
+        android:text="Camera Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/NewCameraText"
+        android:id="@+id/CameraNameText"
+        android:textSize="24sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:ems="8"
+        android:id="@+id/CameraNameEdit"
+        android:layout_below="@+id/NewCameraText"
+        android:layout_toRightOf="@+id/NewCameraText" />
+</RelativeLayout>
