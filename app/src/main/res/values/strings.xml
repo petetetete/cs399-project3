@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">cs399-project3</string>
+    <string name="title_activity_cameras">CamerasActivity</string>
 </resources>

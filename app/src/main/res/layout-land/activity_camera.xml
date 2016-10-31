@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="android.cs399_project3.VideoActivity">
+    tools:context="android.cs399_project3.CameraActivity">
 
 
     <LinearLayout
@@ -19,7 +19,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="0"
             android:background="@color/colorBlack">
 
             <VideoView
