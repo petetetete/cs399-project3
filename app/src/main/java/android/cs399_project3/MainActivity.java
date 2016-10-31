@@ -17,21 +17,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void initNavigationListeners() {
         // Set video button listener
-        findViewById(R.id.toVideoView).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.camerasNav).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
                 startActivity(intent);
             }
         });
 
         // Set video button listener
-        findViewById(R.id.toImageView).setOnClickListener(new View.OnClickListener() {
+        /*findViewById(R.id.toImageView).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ImageActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 }
