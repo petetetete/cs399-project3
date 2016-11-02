@@ -11,7 +11,7 @@ public class NewCameraActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_camera);
-
+        
         findViewById(R.id.AddCameraButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
