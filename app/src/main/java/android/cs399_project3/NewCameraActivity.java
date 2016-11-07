@@ -23,7 +23,7 @@ public class NewCameraActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CamerasActivity.class);
                 startActivity(intent);
-                mainGlobal.addCamera(((EditText) findViewById(R.id.CameraNameEdit)).getText().toString());
+                mainGlobal.addCamera(((EditText) findViewById(R.id.CameraNameEdit)).getText().toString(), 1);
             }
         });
     }

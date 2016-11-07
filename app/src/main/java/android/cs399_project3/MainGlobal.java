@@ -16,9 +16,9 @@ public class MainGlobal extends Application {
         this.settings = new Settings();
 
         // Mock data
-        this.addCamera("test0");
-        this.addCamera("test1");
-        this.addCamera("test2");
+        this.addCamera("test0", 1);
+        this.addCamera("test1", 0);
+        this.addCamera("test2", 0);
     }
 
     // Helper methods
@@ -26,8 +26,8 @@ public class MainGlobal extends Application {
         return this.cameras.get(index);
     }
 
-    public void addCamera(String name) {
-        this.cameras.add(new Camera(name));
+    public void addCamera(String name, int status) {
+        this.cameras.add(new Camera(name, status));
     }
 
     // Getters
@@ -42,9 +42,9 @@ class Camera {
     private CameraSettings settings;
 
     // Constructor
-    public Camera(String name) {
+    public Camera(String name, int status) {
         this.name = name;
-        this.status = 0;
+        this.status = status;
         this.settings = new CameraSettings();
     }
 

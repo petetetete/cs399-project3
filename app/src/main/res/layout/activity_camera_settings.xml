@@ -53,7 +53,7 @@
                 android:textAlignment="center"
                 android:paddingTop="40dp"/>
 
-            <CalendarView
+            <!--<CalendarView
                 android:layout_height="wrap_content"
                 android:id="@+id/FilmDateCalendar"
                 android:layout_width="match_parent"
@@ -69,14 +69,15 @@
                 android:layout_alignParentStart="true"
                 android:id="@+id/StartTimeText"
                 android:textAlignment="center"
-                android:paddingTop="50dp"/>
+                android:paddingTop="50dp"/>-->
 
+            <!--android:layout_below="@id/StartTimeText"-->
             <TimePicker
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_below="@id/StartTimeText"
+
                 android:id="@+id/StartTimePicker" />
 
             <TextView
