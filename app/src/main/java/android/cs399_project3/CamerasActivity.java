@@ -14,12 +14,15 @@ import java.util.ArrayList;
 
 public class CamerasActivity extends AppCompatActivity {
 
+    private MainGlobal mainGlobal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cameras);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Enable title back navigation
+        this.mainGlobal = ((MainGlobal) this.getApplication());
 
         // Set FAB action
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -31,16 +34,8 @@ public class CamerasActivity extends AppCompatActivity {
             }
         });
 
-        // Generate camera list
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("Camera 1");
-        list.add("Camera 2");
-        list.add("Camera 3");
-        list.add("Camera 4");
-        list.add("Camera 5");
-
         // Instantiate camera adapter
-        CameraAdapter adapter = new CameraAdapter(list, this);
+        CameraAdapter adapter = new CameraAdapter(mainGlobal.getCameras(), this);
 
         // Handle camera_list
         ListView lView = (ListView)findViewById(R.id.camera_list);

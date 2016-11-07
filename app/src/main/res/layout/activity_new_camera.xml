@@ -6,76 +6,48 @@
     android:layout_height="match_parent"
     tools:context="android.cs399_project3.NewCameraActivity">
 
-    <TextView
-        android:text="New Camera"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/NewCameraText"
-        android:textSize="30sp" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:text="Camera Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/CameraNameText"
-        android:textSize="24sp"
-        android:layout_below="@id/NewCameraText"
-        android:layout_alignBaseline="@+id/CameraNameEdit"
-        android:layout_alignParentLeft="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/CameraNameEdit"
-        android:layout_below="@+id/NewCameraText"
-        android:layout_toRightOf="@+id/CameraNameText" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Camera Name"
+                android:textSize="25dp"
+                android:id="@+id/CameraNameEdit" />
 
-    <TextView
-        android:text="Camera Brand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/CameraBrandText"
-        android:textSize="24sp"
-        android:layout_alignBaseline="@+id/CameraBrandEdit" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Camera Brand"
+                android:textSize="25dp"
+                android:id="@+id/CameraBrandEdit"
+                android:layout_below="@+id/CameraNameEdit" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Brand"
-        android:ems="10"
-        android:id="@+id/CameraBrandEdit"
-        android:layout_below="@+id/CameraNameEdit"
-        android:layout_toRightOf="@+id/CameraBrandText" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Camera Number"
+                android:textSize="25dp"
+                android:id="@+id/SerialNumberEdit"
+                android:layout_below="@+id/CameraBrandEdit" />
 
-    <TextView
-        android:text="Serial Number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/SerialNumberText"
-        android:textSize="24sp"
-        android:layout_alignBaseline="@+id/SerialNumberEdit" />
+            <Button
+                android:text="Add Camera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/SerialNumberEdit"
+                android:id="@+id/AddCameraButton" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Number"
-        android:ems="10"
-        android:id="@+id/SerialNumberEdit"
-        android:layout_below="@+id/CameraBrandEdit"
-        android:layout_toRightOf="@+id/SerialNumberText" />
+        </LinearLayout>
 
-    <Button
-        android:text="Add Camera"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/SerialNumberEdit"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/AddCameraButton" />
+    </ScrollView>
 
 </RelativeLayout>

@@ -2,23 +2,37 @@ package android.cs399_project3;
 
 import android.app.Application;
 
+import java.util.ArrayList;
+
 
 public class MainGlobal extends Application {
 
-    private Camera[] cameras;
+    private ArrayList<Camera> cameras;
     private Settings settings;
 
+    // Constructor
     public MainGlobal() {
+        this.cameras = new ArrayList<Camera>();
         this.settings = new Settings();
+
+        // Mock data
+        this.addCamera("test0");
+        this.addCamera("test1");
+        this.addCamera("test2");
     }
 
     // Helper methods
     public Camera getCameraAt(int index) {
-        return this.cameras[index];
+        return this.cameras.get(index);
+    }
+
+    public void addCamera(String name) {
+        this.cameras.add(new Camera(name));
     }
 
     // Getters
-    public Camera[] getCameras() { return this.cameras; }
+    public ArrayList<Camera> getCameras() { return this.cameras; }
+    public Settings getSettings() { return this.settings; }
 }
 
 class Camera {
@@ -27,6 +41,7 @@ class Camera {
     private int status;
     private CameraSettings settings;
 
+    // Constructor
     public Camera(String name) {
         this.name = name;
         this.status = 0;
@@ -44,8 +59,9 @@ class Camera {
 
 class Settings {
 
-    boolean notifications;
+    private boolean notifications;
 
+    // Constructor
     public Settings() {
         // Default settings values
         this.notifications = true;
@@ -57,6 +73,7 @@ class CameraSettings {
     boolean notifications;
     boolean saveImages;
 
+    // Constructor
     public CameraSettings() {
         // Default camera setting values
         this.notifications = true;

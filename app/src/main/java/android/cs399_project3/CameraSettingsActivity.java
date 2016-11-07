@@ -15,8 +15,8 @@ public class CameraSettingsActivity extends AppCompatActivity {
         findViewById(R.id.SaveSettingsButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CamerasActivity.class);
-                startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(), CamerasActivity.class);
+            startActivity(intent);
             }
         });
     }
