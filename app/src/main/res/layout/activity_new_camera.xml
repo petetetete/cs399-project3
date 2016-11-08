@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context="android.cs399_project3.NewCameraActivity">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,30 +20,31 @@
                 android:layout_height="wrap_content"
                 android:hint="Camera Name"
                 android:textSize="25dp"
-                android:id="@+id/CameraNameEdit" />
+                android:id="@+id/camera_name" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Camera Brand"
+                android:hint="Camera Status"
                 android:textSize="25dp"
-                android:id="@+id/CameraBrandEdit"
-                android:layout_below="@+id/CameraNameEdit" />
+                android:inputType="number"
+                android:id="@+id/camera_status"
+                android:layout_below="@+id/camera_name" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Camera Number"
                 android:textSize="25dp"
-                android:id="@+id/SerialNumberEdit"
-                android:layout_below="@+id/CameraBrandEdit" />
+                android:id="@+id/camera_number"
+                android:layout_below="@+id/camera_status" />
 
             <Button
                 android:text="Add Camera"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/SerialNumberEdit"
-                android:id="@+id/AddCameraButton" />
+                android:layout_below="@+id/camera_number"
+                android:id="@+id/add_camera" />
 
         </LinearLayout>
 

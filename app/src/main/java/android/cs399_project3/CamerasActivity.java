@@ -39,8 +39,8 @@ public class CamerasActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), NewCameraActivity.class);
-                startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(), NewCameraActivity.class);
+            startActivity(intent);
             }
         });
 

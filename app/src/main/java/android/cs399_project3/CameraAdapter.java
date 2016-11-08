@@ -2,7 +2,6 @@ package android.cs399_project3;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +18,12 @@ public class CameraAdapter extends BaseAdapter implements ListAdapter {
 
     private ArrayList<Camera> list = new ArrayList<Camera>();
     private Context context;
+    private MainGlobal mainGlobal;
 
     public CameraAdapter(ArrayList<Camera> list, Context context) {
         this.list = list;
         this.context = context;
+        mainGlobal = ((MainGlobal) context.getApplicationContext()); // Get global data
     }
 
     @Override
@@ -59,11 +60,13 @@ public class CameraAdapter extends BaseAdapter implements ListAdapter {
 
         // Determine camera status
         ImageView cameraStatus = (ImageView)view.findViewById(R.id.camera_status);
-        int status = 0;
+        int status;
         switch (list.get(position).getStatus()) {
             case 0: status = android.R.drawable.presence_busy;
                     break;
             case 1: status = android.R.drawable.presence_online;
+                    break;
+            default: status = android.R.drawable.presence_offline;
                     break;
         }
         cameraStatus.setBackgroundResource(status);
@@ -71,6 +74,7 @@ public class CameraAdapter extends BaseAdapter implements ListAdapter {
         cameraItem.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                mainGlobal.setCurrCamIndex(position);
                 Intent intent = new Intent(context, CameraActivity.class);
                 context.startActivity(intent);
                 notifyDataSetChanged();
@@ -79,6 +83,7 @@ public class CameraAdapter extends BaseAdapter implements ListAdapter {
         deleteBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                mainGlobal.removeCameraAt(position);
                 list.remove(position);
                 notifyDataSetChanged();
             }
@@ -86,6 +91,7 @@ public class CameraAdapter extends BaseAdapter implements ListAdapter {
         settingsBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                mainGlobal.setCurrCamIndex(position);
                 Intent intent = new Intent(context, CameraSettingsActivity.class);
                 context.startActivity(intent);
                 notifyDataSetChanged();

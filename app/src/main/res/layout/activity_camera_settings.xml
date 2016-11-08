@@ -4,16 +4,30 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Camera Name"
+                android:textSize="25dp"
+                android:id="@+id/camera_name" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Camera Status"
+                android:textSize="25dp"
+                android:inputType="number"
+                android:id="@+id/camera_status"
+                android:layout_below="@+id/camera_name" />
+
+            <!--<TextView
                 android:text="Camera Settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,7 +67,7 @@
                 android:textAlignment="center"
                 android:paddingTop="40dp"/>
 
-            <!--<CalendarView
+            <CalendarView
                 android:layout_height="wrap_content"
                 android:id="@+id/FilmDateCalendar"
                 android:layout_width="match_parent"
@@ -69,15 +83,14 @@
                 android:layout_alignParentStart="true"
                 android:id="@+id/StartTimeText"
                 android:textAlignment="center"
-                android:paddingTop="50dp"/>-->
+                android:paddingTop="50dp"/>&ndash;&gt;
 
-            <!--android:layout_below="@id/StartTimeText"-->
             <TimePicker
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-
+                android:layout_below="@id/StartTimeText"
                 android:id="@+id/StartTimePicker" />
 
             <TextView
@@ -99,16 +112,14 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@id/EndTimeText"
                 android:id="@+id/EndTimePicker"
-                android:paddingBottom="30dp"/>
+                android:paddingBottom="30dp"/>-->
 
             <Button
                 android:text="Save Settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/EndTimePicker"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:id="@+id/SaveSettingsButton" />
-        </RelativeLayout>
+                android:layout_below="@+id/camera_status"
+                android:id="@+id/save_camera" />
+        </LinearLayout>
     </ScrollView>
 </RelativeLayout>

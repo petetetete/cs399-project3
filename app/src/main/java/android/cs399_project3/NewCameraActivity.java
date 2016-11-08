@@ -15,15 +15,18 @@ public class NewCameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_camera);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Enable title back navigation
-        this.mainGlobal = ((MainGlobal) this.getApplication());
+        this.mainGlobal = ((MainGlobal) this.getApplication()); // Get global data
 
-        findViewById(R.id.AddCameraButton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.add_camera).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String cameraName = ((EditText) findViewById(R.id.camera_name)).getText().toString();
+                String cameraStatus = ((EditText) findViewById(R.id.camera_status)).getText().toString();
+                int cameraStatusInt = (cameraStatus.equals("")) ? -1 : Integer.parseInt(cameraStatus);
+                mainGlobal.addCamera(cameraName, cameraStatusInt);
+
                 Intent intent = new Intent(getApplicationContext(), CamerasActivity.class);
                 startActivity(intent);
-                mainGlobal.addCamera(((EditText) findViewById(R.id.CameraNameEdit)).getText().toString(), 1);
             }
         });
     }

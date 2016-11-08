@@ -9,7 +9,5 @@ public class ImageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Enable title back navigation
     }
 }
