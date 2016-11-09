@@ -1,11 +1,16 @@
 package android.cs399_project3;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.media.RingtoneManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.net.Uri;
+import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -17,12 +22,15 @@ public class CameraActivity extends AppCompatActivity {
 
     private MainGlobal mainGlobal;
 
+    private NotificationManager mNotifyMgr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
         mainGlobal = ((MainGlobal) this.getApplication()); // Get global data
+        mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
         // Change activity name to name of current camera
         getSupportActionBar().setTitle(mainGlobal.getCurrentCamera().getName());
@@ -42,6 +50,15 @@ public class CameraActivity extends AppCompatActivity {
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
+
+                // Test notifications
+                android.support.v4.app.NotificationCompat.Builder mBuilder =
+                        new android.support.v4.app.NotificationCompat.Builder(getApplicationContext())
+                                .setSmallIcon(R.drawable.ic_camera_icon)
+                                .setContentTitle(getString(R.string.cameras_activity_name) + ": Video loaded!")
+                                .setContentText("Your video is now ready to go.");
+                mNotifyMgr.notify(001, mBuilder.build());
+
                 spinner.setVisibility(View.GONE);
                 videoView.start();
             }
