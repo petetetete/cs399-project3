@@ -84,7 +84,6 @@ public class CameraAdapter extends BaseAdapter implements ListAdapter {
             @Override
             public void onClick(View v) {
                 mainGlobal.removeCameraAt(position);
-                list.remove(position);
                 notifyDataSetChanged();
             }
         });

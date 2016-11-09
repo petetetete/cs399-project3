@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">cs399-project3</string>
-    <string name="title_activity_cameras">CamerasActivity</string>
+    <string name="cameras_activity_name">iSpy</string>
+
+    <string-array name="nav_options">
+        <item>Cameras</item>
+        <item>Settings</item>
+    </string-array>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+
+    <string name="camera_name">Name</string>
+    <string name="camera_status">Status</string>
+    <string name="add_camera">Add Camera</string>
+    <string name="save_settings">Save Settings</string>
 </resources>
