@@ -32,7 +32,7 @@ public class CamerasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cameras);
 
-        this.mainGlobal = ((MainGlobal) this.getApplication()); // Get global data
+        mainGlobal = ((MainGlobal) this.getApplication()); // Get global data
 
         // Set FAB action
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

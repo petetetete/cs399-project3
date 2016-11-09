@@ -26,7 +26,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        this.mainGlobal = ((MainGlobal) this.getApplication()); // Get global data
+        mainGlobal = ((MainGlobal) this.getApplication()); // Get global data
 
         // Initialize drawer
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);

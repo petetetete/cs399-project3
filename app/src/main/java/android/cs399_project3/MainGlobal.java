@@ -17,9 +17,9 @@ public class MainGlobal extends Application {
         this.settings = new Settings();
 
         // Mock data
-        addCamera("test0", 1);
-        addCamera("test1", 0);
-        addCamera("test2", 0);
+        addCamera("test0", 1, "https://ia800309.us.archive.org/2/items/Popeye_Nearlyweds/Popeye_Nearlyweds_512kb.mp4");
+        addCamera("test1", 0, "https://ia600208.us.archive.org/4/items/Popeye_forPresident/Popeye_forPresident_512kb.mp4");
+        addCamera("test2", 0, "https://ia902606.us.archive.org/15/items/Popeye_Cooking_With_Gags_1954/Popeye_Cookin_with_Gags_512kb.mp4");
     }
 
     // Helper methods
@@ -37,8 +37,8 @@ public class MainGlobal extends Application {
         cameras.remove(index);
     }
 
-    public void addCamera(String name, int status) {
-        cameras.add(new Camera(name, status));
+    public void addCamera(String name, int status, String url) {
+        cameras.add(new Camera(name, status, url));
     }
 
     // Getters
@@ -54,22 +54,24 @@ class Camera {
 
     private String name;
     private int status;
-    private CameraSettings settings;
+    private String url;
 
     // Constructor
-    public Camera(String name, int status) {
+    public Camera(String name, int status, String url) {
         this.name = name;
         this.status = status;
-        settings = new CameraSettings();
+        this.url = url;
     }
 
     // Getters
     public String getName() { return name; }
     public int getStatus() { return status; }
+    public String getUrl() { return url; }
 
     // Setters
     public void setName(String n) { name = n; }
     public void setStatus(int n) { status = n; }
+    public void setUrl(String n) { url = n; }
 }
 
 class Settings {
@@ -80,18 +82,5 @@ class Settings {
     public Settings() {
         // Default settings values
         notifications = true;
-    }
-}
-
-class CameraSettings {
-
-    boolean notifications;
-    boolean saveImages;
-
-    // Constructor
-    public CameraSettings() {
-        // Default camera setting values
-        notifications = true;
-        saveImages = true;
     }
 }
