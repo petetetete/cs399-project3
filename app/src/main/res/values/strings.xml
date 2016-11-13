@@ -9,8 +9,21 @@
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 
-    <string name="camera_name">Name</string>
-    <string name="camera_status">Status</string>
+    <string-array name="status_options">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <string name="time_picker_title">Select a Time</string>
+    <string name="required_error">Field is required!</string>
+    <string name="default_url">https://ia902702.us.archive.org/17/items/JerkyTurkey1945/Jerky_Turkey_1945_512kb.mp4</string>
+
+    <string name="camera_name">Name:</string>
+    <string name="camera_url">URL:</string>
+    <string name="camera_status">Status:</string>
+    <string name="camera_start_time">Start Time:</string>
+    <string name="camera_end_time">End Time:</string>
     <string name="add_camera">Add Camera</string>
     <string name="save_settings">Save Settings</string>
 </resources>

@@ -29,7 +29,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="22sp"
+                    android:textSize="@dimen/input_label_size"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:text="@string/camera_name"/>
@@ -38,6 +38,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
+                    android:gravity="right"
+                    android:textColor="@color/textColor"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
                     android:id="@+id/camera_name" />
 
             </LinearLayout>
@@ -50,105 +54,107 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="22sp"
+                    android:textSize="@dimen/input_label_size"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:text="@string/camera_status"/>
+                    android:text="@string/camera_url"/>
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="textUri"
+                    android:gravity="end"
+                    android:textColor="@color/textColor"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/default_url"
+                    android:id="@+id/camera_url" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/input_label_size"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/camera_status"/>
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="4dp"
                     android:id="@+id/camera_status" />
 
             </LinearLayout>
 
-            <!--<TextView
-                android:text="Camera Settings"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:id="@+id/CameraSettingsText"
-                android:textSize="30sp"
-                android:padding="@dimen/fab_margin"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:text="Allow Notifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/NotificationsText"
-                android:layout_alignBaseline="@+id/Notifications"
-                android:textSize="24sp"
-                android:padding="@dimen/fab_margin"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/input_label_size"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/camera_start_time" />
 
-            <Switch
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/Notifications"
-                android:layout_below="@id/CameraSettingsText"
-                android:layout_toRightOf="@+id/NotificationsText"
-                android:padding="@dimen/fab_margin"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:gravity="end"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/textColor"
+                    android:textSize="22sp"
+                    android:id="@+id/camera_start_time"
+                    android:drawablePadding="5dp"
+                    android:drawableEnd="@drawable/ic_clock_icon"
+                    android:drawableRight="@drawable/ic_clock_icon" />
 
-            <TextView
-                android:text="Film Date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/NotificationsText"
-                android:textSize="24sp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:id="@+id/FilmDateText"
-                android:textAlignment="center"
-                android:paddingTop="40dp"/>
+            </LinearLayout>
 
-            <CalendarView
-                android:layout_height="wrap_content"
-                android:id="@+id/FilmDateCalendar"
-                android:layout_width="match_parent"
-                android:layout_below="@+id/FilmDateText"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:text="Start Time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/FilmDateCalendar"
-                android:textSize="24sp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:id="@+id/StartTimeText"
-                android:textAlignment="center"
-                android:paddingTop="50dp"/>&ndash;&gt;
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/input_label_size"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/camera_end_time" />
 
-            <TimePicker
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@id/StartTimeText"
-                android:id="@+id/StartTimePicker" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:gravity="end"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/textColor"
+                    android:textSize="22sp"
+                    android:id="@+id/camera_end_time"
+                    android:drawablePadding="5dp"
+                    android:drawableEnd="@drawable/ic_clock_icon"
+                    android:drawableRight="@drawable/ic_clock_icon" />
 
-            <TextView
-                android:text="End Time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/StartTimePicker"
-                android:textSize="24sp"
-                android:paddingTop="50dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:id="@+id/EndTimeText"
-                android:textAlignment="center"/>
-
-            <TimePicker
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@id/EndTimeText"
-                android:id="@+id/EndTimePicker"
-                android:paddingBottom="30dp"/>-->
+            </LinearLayout>
 
             <Button
                 android:text="@string/save_settings"

@@ -90,8 +90,6 @@ public class CameraActivity extends AppCompatActivity {
 
         // Check if the user is landscape on activity start
         orientationChanges(getResources().getConfiguration().orientation);
-
-
     }
 
     @Override
