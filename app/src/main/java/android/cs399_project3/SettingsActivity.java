@@ -34,12 +34,12 @@ public class SettingsActivity extends AppCompatActivity {
         settingsNotification = (Spinner) findViewById(R.id.settings_notifications);
 
         // Populate spinner with options
-        String[] notificatioOptions = getResources().getStringArray(R.array.notification_options);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, notificatioOptions);
+        String[] notificationOptions = getResources().getStringArray(R.array.notification_options);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, notificationOptions);
         settingsNotification.setAdapter(adapter);
 
         // Fill in inputs with current data
-        settingsNotification.setSelection(mainGlobal.getSettings().notificationsEnabled() ? 0 : 1);
+        settingsNotification.setSelection(mainGlobal.getSettings().getNotifications() ? 0 : 1);
 
         // Initialize drawer
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);

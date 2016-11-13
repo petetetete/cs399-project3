@@ -60,7 +60,9 @@ public class CameraActivity extends AppCompatActivity {
                 mainGlobal.logCurrentCamera("Video viewed.");
                 mAdapter.notifyDataSetChanged();
 
-                mainGlobal.createNotification("Video loaded!", "Your video is now ready to view.");
+                if (mainGlobal.getCurrentCamera().getNotifications()) {
+                    mainGlobal.createNotification("Video loaded!", "Your video is now ready to view.");
+                }
 
                 spinner.setVisibility(View.GONE);
                 videoView.start();

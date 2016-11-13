@@ -26,6 +26,7 @@ public class NewCameraActivity extends AppCompatActivity {
     private EditText cameraName;
     private EditText cameraUrl;
     private Spinner cameraStatus;
+    private Spinner cameraNotification;
     private TextView cameraStartTime;
     private TextView cameraEndTime;
 
@@ -39,6 +40,7 @@ public class NewCameraActivity extends AppCompatActivity {
         cameraName = (EditText) findViewById(R.id.camera_name);
         cameraUrl = (EditText) findViewById(R.id.camera_url);
         cameraStatus = (Spinner) findViewById(R.id.camera_status);
+        cameraNotification = (Spinner) findViewById(R.id.camera_notifications);
         cameraStartTime = (TextView) findViewById(R.id.camera_start_time);
         cameraEndTime = (TextView) findViewById(R.id.camera_end_time);
 
@@ -59,6 +61,11 @@ public class NewCameraActivity extends AppCompatActivity {
         String[] statusOptions = getResources().getStringArray(R.array.status_options);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, statusOptions);
         cameraStatus.setAdapter(adapter);
+
+        // Populate spinner with options
+        String[] notificationOptions = getResources().getStringArray(R.array.notification_options);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, R.layout.spinner_item, notificationOptions);
+        cameraNotification.setAdapter(adapter1);
 
         // Initialize start time input with current time
         DateTime dt = new DateTime();
@@ -94,12 +101,14 @@ public class NewCameraActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String cN = cameraName.getText().toString();
                 int cS = Integer.parseInt(cameraStatus.getSelectedItem().toString());
+                String cSN = cameraNotification.getSelectedItem().toString();
+                boolean cSNB = cSN.equals(getResources().getStringArray(R.array.notification_options)[0]);
                 String cU = cameraUrl.getText().toString();
                 String cST = cameraStartTime.getText().toString();
                 String cET = cameraEndTime.getText().toString();
 
                 if (!cN.equals("")) {
-                    mainGlobal.addCamera(cN, cS, cU, cST, cET);
+                    mainGlobal.addCamera(cN, cS, cSNB, cU, cST, cET);
                     Intent intent = new Intent(getApplicationContext(), CamerasActivity.class);
                     startActivity(intent);
                 }

@@ -21,6 +21,7 @@ public class CameraSettingsActivity extends AppCompatActivity {
     private EditText cameraName;
     private EditText cameraUrl;
     private Spinner cameraStatus;
+    private Spinner cameraNotification;
     private TextView cameraStartTime;
     private TextView cameraEndTime;
 
@@ -33,6 +34,7 @@ public class CameraSettingsActivity extends AppCompatActivity {
         cameraName = (EditText) findViewById(R.id.camera_name);
         cameraUrl = (EditText) findViewById(R.id.camera_url);
         cameraStatus = (Spinner) findViewById(R.id.camera_status);
+        cameraNotification = (Spinner) findViewById(R.id.camera_notifications);
         cameraStartTime = (TextView) findViewById(R.id.camera_start_time);
         cameraEndTime = (TextView) findViewById(R.id.camera_end_time);
 
@@ -53,6 +55,11 @@ public class CameraSettingsActivity extends AppCompatActivity {
         String[] statusOptions = getResources().getStringArray(R.array.status_options);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, statusOptions);
         cameraStatus.setAdapter(adapter);
+
+        // Populate spinner with options
+        String[] notificationOptions = getResources().getStringArray(R.array.notification_options);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, R.layout.spinner_item, notificationOptions);
+        cameraNotification.setAdapter(adapter1);
 
         // Time picker listener
         View.OnClickListener timePicker = new View.OnClickListener() {
@@ -82,6 +89,7 @@ public class CameraSettingsActivity extends AppCompatActivity {
         cameraName.setText(mainGlobal.getCurrentCamera().getName());
         cameraUrl.setText(mainGlobal.getCurrentCamera().getUrl());
         cameraStatus.setSelection(adapter.getPosition(mainGlobal.getStatusCurrentCamera()));
+        cameraNotification.setSelection(mainGlobal.getCurrentCamera().getNotifications() ? 0 : 1);
         cameraStartTime.setText(mainGlobal.getCurrentCamera().getStartTime());
         cameraEndTime.setText(mainGlobal.getCurrentCamera().getEndTime());
 
@@ -92,6 +100,8 @@ public class CameraSettingsActivity extends AppCompatActivity {
                 // Get data from inputs
                 String cN = cameraName.getText().toString();
                 int cS = Integer.parseInt(cameraStatus.getSelectedItem().toString());
+                String cSN = cameraNotification.getSelectedItem().toString();
+                boolean cSNB = cSN.equals(getResources().getStringArray(R.array.notification_options)[0]);
                 String cU = cameraUrl.getText().toString();
                 String cST = cameraStartTime.getText().toString();
                 String cET = cameraEndTime.getText().toString();
@@ -99,7 +109,7 @@ public class CameraSettingsActivity extends AppCompatActivity {
                 // Check if a name was entered, if so, navigate back to list
                 if (!cN.equals("")) {
                     mainGlobal.getCurrentCamera().addLogEntry("Settings updated.");
-                    mainGlobal.editCurrentCameraSettings(cN, cS, cU, cST, cET);
+                    mainGlobal.editCurrentCameraSettings(cN, cS, cSNB, cU, cST, cET);
                     Intent intent = new Intent(getApplicationContext(), CamerasActivity.class);
                     startActivity(intent);
                 }
