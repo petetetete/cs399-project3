@@ -66,7 +66,7 @@ public class CamerasActivity extends AppCompatActivity {
         ListView drawerList = (ListView) findViewById(R.id.nav_list);
         final String[] navOptions = getResources().getStringArray(R.array.nav_options);
 
-        ArrayAdapter<String> mAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, navOptions);
+        ArrayAdapter<String> mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, navOptions);
         drawerList.setAdapter(mAdapter);
 
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
