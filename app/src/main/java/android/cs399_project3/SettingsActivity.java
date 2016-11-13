@@ -11,10 +11,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 public class SettingsActivity extends AppCompatActivity {
 
     private MainGlobal mainGlobal;
+
+    // Global variables for input fields
+    private Spinner settingsNotification;
 
     // Navigation drawer variables
     private ActionBarDrawerToggle drawerToggle;
@@ -27,6 +31,15 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         mainGlobal = ((MainGlobal) this.getApplication()); // Get global data
+        settingsNotification = (Spinner) findViewById(R.id.settings_notifications);
+
+        // Populate spinner with options
+        String[] notificatioOptions = getResources().getStringArray(R.array.notification_options);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, notificatioOptions);
+        settingsNotification.setAdapter(adapter);
+
+        // Fill in inputs with current data
+        settingsNotification.setSelection(mainGlobal.getSettings().notificationsEnabled() ? 0 : 1);
 
         // Initialize drawer
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -34,6 +47,21 @@ public class SettingsActivity extends AppCompatActivity {
         setupNavDrawer();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        // Add event listener to save settings button
+        findViewById(R.id.save_settings).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get data from inputs
+                String cS = settingsNotification.getSelectedItem().toString();
+                boolean cSB = cS.equals(getResources().getStringArray(R.array.notification_options)[0]);
+
+                // Save settings and navigate back to list
+                mainGlobal.editSettings(cSB);
+                Intent intent = new Intent(getApplicationContext(), CamerasActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

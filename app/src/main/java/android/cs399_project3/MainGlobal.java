@@ -1,6 +1,8 @@
 package android.cs399_project3;
 
 import android.app.Application;
+import android.app.NotificationManager;
+import android.support.v4.app.NotificationCompat;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -41,6 +43,10 @@ public class MainGlobal extends Application {
         curr.setEndTime(endTime);
     }
 
+    public void editSettings(boolean notifications) {
+        settings.setNotifications(notifications);
+    }
+
     public void removeCameraAt(int index) {
         cameras.remove(index);
     }
@@ -59,6 +65,17 @@ public class MainGlobal extends Application {
 
     public String formatTime(int hour, int minute) {
         return String.format(Locale.getDefault(), "%1$d:%2$02d", hour, minute);
+    }
+
+    public void createNotification(String title, String message) {
+        if (settings.notificationsEnabled()) {
+            NotificationManager nManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext())
+                    .setSmallIcon(R.drawable.ic_camera_icon)
+                    .setContentTitle(getString(R.string.cameras_activity_name) + ": " + title)
+                    .setContentText(message);
+            nManager.notify(001, mBuilder.build());
+        }
     }
 
     // Getters
@@ -122,4 +139,10 @@ class Settings {
         // Default settings values
         notifications = true;
     }
+
+    // Getters
+    public boolean notificationsEnabled() { return notifications; }
+
+    // Setters
+    public void setNotifications(boolean n) { notifications = n; }
 }

@@ -24,7 +24,6 @@ public class CameraActivity extends AppCompatActivity {
 
     private MainGlobal mainGlobal;
 
-    private NotificationManager mNotifyMgr;
     private ArrayAdapter<String> mAdapter;
 
     @Override
@@ -33,7 +32,6 @@ public class CameraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_camera);
 
         mainGlobal = ((MainGlobal) this.getApplication()); // Get global data
-        mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
         // Change activity name to name of current camera
         getSupportActionBar().setTitle(mainGlobal.getCurrentCamera().getName());
@@ -62,13 +60,7 @@ public class CameraActivity extends AppCompatActivity {
                 mainGlobal.logCurrentCamera("Video viewed.");
                 mAdapter.notifyDataSetChanged();
 
-                // Test notifications
-                android.support.v4.app.NotificationCompat.Builder mBuilder =
-                        new android.support.v4.app.NotificationCompat.Builder(getApplicationContext())
-                                .setSmallIcon(R.drawable.ic_camera_icon)
-                                .setContentTitle(getString(R.string.cameras_activity_name) + ": Video loaded!")
-                                .setContentText("Your video is now ready to go.");
-                mNotifyMgr.notify(001, mBuilder.build());
+                mainGlobal.createNotification("Video loaded!", "Your video is now ready to view.");
 
                 spinner.setVisibility(View.GONE);
                 videoView.start();

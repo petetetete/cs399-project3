@@ -89,12 +89,14 @@ public class CameraSettingsActivity extends AppCompatActivity {
         findViewById(R.id.save_camera).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Get data from inputs
                 String cN = cameraName.getText().toString();
                 int cS = Integer.parseInt(cameraStatus.getSelectedItem().toString());
                 String cU = cameraUrl.getText().toString();
                 String cST = cameraStartTime.getText().toString();
                 String cET = cameraEndTime.getText().toString();
 
+                // Check if a name was entered, if so, navigate back to list
                 if (!cN.equals("")) {
                     mainGlobal.getCurrentCamera().addLogEntry("Settings updated.");
                     mainGlobal.editCurrentCameraSettings(cN, cS, cU, cST, cET);
