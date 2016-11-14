@@ -33,6 +33,7 @@ public class CamerasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cameras);
 
         mainGlobal = ((MainGlobal) this.getApplication()); // Get global data
+        if (mainGlobal.needsLoad()) mainGlobal.loadData();
 
         // Set FAB action
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -59,6 +60,11 @@ public class CamerasActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_layout, menu);
+        return true;
+    }
 
     /*
      *   Begin methods for navigation drawer
@@ -117,6 +123,17 @@ public class CamerasActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_save:
+                try {
+                    mainGlobal.saveData();
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return true;
+        }
+
         return drawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
     /*

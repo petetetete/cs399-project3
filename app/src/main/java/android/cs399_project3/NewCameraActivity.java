@@ -110,6 +110,7 @@ public class NewCameraActivity extends AppCompatActivity {
 
                 if (!cN.equals("")) {
                     mainGlobal.addCamera(cN, cS, cSNB, cU, cST, cET);
+                    mainGlobal.getLatestCamera().addLogEntry("Camera created.");
                     Intent intent = new Intent(getApplicationContext(), CamerasActivity.class);
                     startActivity(intent);
                 }

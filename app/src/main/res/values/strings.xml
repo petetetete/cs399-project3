@@ -28,6 +28,7 @@
     <string name="access_delete">Delete Button</string>
 
     <!-- General messages -->
+    <string name="save_label">Save Cameras</string>
     <string name="error_message">ERROR</string>
     <string name="time_picker_title">Select a Time</string>
     <string name="required_error">Field is required!</string>
