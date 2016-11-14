@@ -1,16 +1,11 @@
 package android.cs399_project3;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.media.MediaPlayer;
-import android.media.RingtoneManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.net.Uri;
-import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
@@ -60,10 +55,12 @@ public class CameraActivity extends AppCompatActivity {
                 mainGlobal.logCurrentCamera("Video viewed.");
                 mAdapter.notifyDataSetChanged();
 
+                // Create notification on video load
                 if (mainGlobal.getCurrentCamera().getNotifications()) {
                     mainGlobal.createNotification("Video loaded!", "Your video is now ready to view.");
                 }
 
+                // Hide spinner
                 spinner.setVisibility(View.GONE);
                 videoView.start();
             }
@@ -88,6 +85,7 @@ public class CameraActivity extends AppCompatActivity {
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
+        // Manage orientation changes
         orientationChanges(newConfig.orientation);
         super.onConfigurationChanged(newConfig);
     }

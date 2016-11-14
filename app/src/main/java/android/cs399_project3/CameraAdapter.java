@@ -46,7 +46,7 @@ public class CameraAdapter extends BaseAdapter implements ListAdapter {
         View view = convertView;
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.camera_list_element, null);
+            view = inflater.inflate(R.layout.camera_list_element, parent, false);
         }
 
         // Handle TextView and display string from your list
@@ -62,15 +62,18 @@ public class CameraAdapter extends BaseAdapter implements ListAdapter {
         ImageView cameraStatus = (ImageView)view.findViewById(R.id.camera_status);
         int status;
         switch (list.get(position).getStatus()) {
-            case 0: status = android.R.drawable.presence_busy;
+            case 0: status = android.R.drawable.presence_online;
                     break;
-            case 1: status = android.R.drawable.presence_online;
+            case 1: status = android.R.drawable.presence_busy;
                     break;
-            default: status = android.R.drawable.presence_offline;
+            case 2: status = android.R.drawable.presence_offline;
+                    break;
+            default: status = android.R.drawable.presence_away;
                     break;
         }
         cameraStatus.setBackgroundResource(status);
 
+        // Add event listeners to the elements of the layout
         cameraItem.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

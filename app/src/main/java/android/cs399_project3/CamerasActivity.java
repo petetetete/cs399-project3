@@ -60,7 +60,9 @@ public class CamerasActivity extends AppCompatActivity {
     }
 
 
-    // Methods for navigation drawer
+    /*
+     *   Begin methods for navigation drawer
+     */
     private void setupNavDrawer() {
 
         ListView drawerList = (ListView) findViewById(R.id.nav_list);
@@ -117,4 +119,7 @@ public class CamerasActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         return drawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
+    /*
+     *   End methods for navigation drawer
+     */
 }

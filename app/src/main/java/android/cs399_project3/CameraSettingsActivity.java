@@ -99,7 +99,7 @@ public class CameraSettingsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Get data from inputs
                 String cN = cameraName.getText().toString();
-                int cS = Integer.parseInt(cameraStatus.getSelectedItem().toString());
+                int cS = cameraStatus.getSelectedItemPosition();
                 String cSN = cameraNotification.getSelectedItem().toString();
                 boolean cSNB = cSN.equals(getResources().getStringArray(R.array.notification_options)[0]);
                 String cU = cameraUrl.getText().toString();

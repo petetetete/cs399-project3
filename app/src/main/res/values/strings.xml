@@ -1,36 +1,50 @@
 <resources>
+    <!-- Project names -->
     <string name="app_name">cs399-project3</string>
     <string name="cameras_activity_name">iSpy</string>
 
+    <!-- Options arrays -->
     <string-array name="nav_options">
         <item>Cameras</item>
         <item>Settings</item>
     </string-array>
-    <string name="drawer_open">Open navigation drawer</string>
-    <string name="drawer_close">Close navigation drawer</string>
-
     <string-array name="notification_options">
         <item>Enabled</item>
         <item>Disabled</item>
     </string-array>
-
     <string-array name="status_options">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
+        <item>Active</item>
+        <item>Inactive</item>
+        <item>Disabled</item>
     </string-array>
 
-    <string name="time_picker_title">Select a Time</string>
-    <string name="required_error">Field is required!</string>
+    <!-- Default input values -->
+    <string name="default_camera_name">Camera</string>
     <string name="default_url">https://ia902702.us.archive.org/17/items/JerkyTurkey1945/Jerky_Turkey_1945_512kb.mp4</string>
 
+    <!-- Accessibility strings -->
+    <string name="access_status">Status Icon</string>
+    <string name="access_settings">Settings Button</string>
+    <string name="access_delete">Delete Button</string>
+
+    <!-- General messages -->
+    <string name="error_message">ERROR</string>
+    <string name="time_picker_title">Select a Time</string>
+    <string name="required_error">Field is required!</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <!-- Main settings labels -->
     <string name="settings_notifications">Notifications:</string>
 
+    <!-- Camera settings labels -->
     <string name="camera_name">Name:</string>
     <string name="camera_url">URL:</string>
     <string name="camera_status">Status:</string>
     <string name="camera_start_time">Start Time:</string>
     <string name="camera_end_time">End Time:</string>
+
+    <!-- Camera button text -->
     <string name="add_camera">Add Camera</string>
     <string name="save_settings">Save Settings</string>
 </resources>

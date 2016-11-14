@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -15,8 +14,6 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import org.joda.time.DateTime;
-
-import java.util.Date;
 
 public class NewCameraActivity extends AppCompatActivity {
 
@@ -43,6 +40,10 @@ public class NewCameraActivity extends AppCompatActivity {
         cameraNotification = (Spinner) findViewById(R.id.camera_notifications);
         cameraStartTime = (TextView) findViewById(R.id.camera_start_time);
         cameraEndTime = (TextView) findViewById(R.id.camera_end_time);
+
+        // Set default camera name
+        cameraName.setText(getResources().getText(R.string.default_camera_name) + " "
+                + (mainGlobal.getCameras().size() + 1));
 
         // Add required listener to camera status
         cameraName.addTextChangedListener(new TextWatcher() {
@@ -100,7 +101,7 @@ public class NewCameraActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String cN = cameraName.getText().toString();
-                int cS = Integer.parseInt(cameraStatus.getSelectedItem().toString());
+                int cS = cameraStatus.getSelectedItemPosition();
                 String cSN = cameraNotification.getSelectedItem().toString();
                 boolean cSNB = cSN.equals(getResources().getStringArray(R.array.notification_options)[0]);
                 String cU = cameraUrl.getText().toString();
