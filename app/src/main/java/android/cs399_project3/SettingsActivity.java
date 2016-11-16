@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -19,6 +20,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     // Global variables for input fields
     private Spinner settingsNotification;
+    private EditText phoneNumber;
 
     // Navigation drawer variables
     private ActionBarDrawerToggle drawerToggle;
@@ -32,6 +34,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         mainGlobal = ((MainGlobal) this.getApplication()); // Get global data
         settingsNotification = (Spinner) findViewById(R.id.settings_notifications);
+        phoneNumber = (EditText) findViewById(R.id.phone_number);
 
         // Populate spinner with options
         String[] notificationOptions = getResources().getStringArray(R.array.notification_options);
@@ -55,9 +58,10 @@ public class SettingsActivity extends AppCompatActivity {
                 // Get data from inputs
                 String cS = settingsNotification.getSelectedItem().toString();
                 boolean cSB = cS.equals(getResources().getStringArray(R.array.notification_options)[0]);
+                String pN = phoneNumber.getText().toString();
 
                 // Save settings and navigate back to list
-                mainGlobal.editSettings(cSB);
+                mainGlobal.editSettings(cSB, pN);
                 Intent intent = new Intent(getApplicationContext(), CamerasActivity.class);
                 startActivity(intent);
             }

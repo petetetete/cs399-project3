@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Vibrator;
 import android.support.v4.app.NotificationCompat;
+import android.telephony.SmsManager;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -171,8 +172,9 @@ public class MainGlobal extends Application {
         curr.setEndTime(endTime);
     }
 
-    public void editSettings(boolean notifications) {
+    public void editSettings(boolean notifications, String phoneNumber) {
         settings.setNotifications(notifications);
+        settings.setPhoneNumber(phoneNumber);
     }
 
     public void removeCameraAt(int index) {
@@ -195,6 +197,12 @@ public class MainGlobal extends Application {
         return String.format(Locale.getDefault(), "%1$d:%2$02d", hour, minute);
     }
 
+    private void sendSMSText(String message) {
+        String phoneNumber = settings.getPhoneNumber();
+        SmsManager smsManager = SmsManager.getDefault();
+        smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+    }
+
     public void createNotification(String title, String message) {
         if (settings.getNotifications()) {
             PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0, new Intent(this, MainGlobal.class), 0);
@@ -213,6 +221,10 @@ public class MainGlobal extends Application {
 
             Vibrator v = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
             v.vibrate(100);
+
+            if (settings.getPhoneNumber() != "") {
+                sendSMSText(message);
+            }
         }
     }
 
@@ -275,16 +287,20 @@ class Camera {
 class Settings {
 
     private boolean notifications;
+    private String phoneNumber;
 
     // Constructor
     public Settings() {
         // Default settings values
         notifications = true;
+        phoneNumber = "";
     }
 
     // Getters
     public boolean getNotifications() { return notifications; }
+    public String getPhoneNumber() { return phoneNumber; }
 
     // Setters
     public void setNotifications(boolean n) { notifications = n; }
+    public void setPhoneNumber(String n) { phoneNumber = n; }
 }
