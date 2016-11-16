@@ -222,7 +222,7 @@ public class MainGlobal extends Application {
             Vibrator v = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
             v.vibrate(100);
 
-            if (settings.getPhoneNumber() != "") {
+            if (!settings.getPhoneNumber().equals("")) {
                 sendSMSText(message);
             }
         }

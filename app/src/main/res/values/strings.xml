@@ -37,6 +37,7 @@
 
     <!-- Main settings labels -->
     <string name="settings_notifications">Notifications:</string>
+    <string name="settings_phone">Phone Number:</string>
 
     <!-- Camera settings labels -->
     <string name="camera_name">Name:</string>
